@@ -81,8 +81,8 @@ function A5 = A5_calc2(x1, x2, x3, x4, U0, U1, E)
   A = A ./ denom_A;
   B = exp(1i .* k1 .* x3) - exp(1i .* k1 .* (2 .* x2 - x3)) .* ((exp(k2 .* x2) + exp(k2 .* (2 .* x1 - x2))) ./ (exp(k2 .* x2) - exp(k2 .* (2 .* x1 - x2))) .* k2 - 1i .* k1) ./ ((exp(k2 .* x2) + exp(k2 .* (2 .* x1 - x2))) ./ (exp(k2 .* x2) - exp(k2 .* (2 .* x1 - x2))) .* k2 + 1i .* k1);
   D = exp(k2 .* x4) + exp(k2 .* (2 .* x3 - x4)) .* ((k2 - 1i .* k1 ./ B .* (exp(1i .* k1 .* x3) + exp(-1i .* k1 .* x3))) ./ (k2 + 1i .* k1 ./ B .* (exp(1i .* k1 .* x3) + exp(1i .* k1 .* x3))));
-  res = exp(-1i .* k1 .* x4) .* ((exp(-k2 .* (x3 + x4)) - exp(k2 .* x3)) .* (1i .* k1 .* k2 .* A ./ B .* (1 + exp(-2i .* k1 .* x3))) ./ (k2 + (1i .* k1) ./ B .* (exp(1i .* k1 .* x3) + exp(-1i .* k1 .* x3))));
+  res = exp(-1i .* k1 .* x4) .* 1e6 .* ((exp(-k2 .* (x3 + x4)) - exp(k2 .* x3)) .* (1i .* k1 .* k2 .* A ./ B .* (1 + exp(-2i .* k1 .* x3))) ./ (k2 + (1i .* k1) ./ B .* (exp(1i .* k1 .* x3) + exp(-1i .* k1 .* x3))));
   denom_res = k2 .* (exp(x4 .* k2) + 1) ./ D - k2 .* exp(-2 .* k2 .* x3) - 1i .* k1;
-  res = abs(res ./ denom_res).^-2;           %                                                                                                                                                                                                                                                                                                                                                   res=A5_calc1(x1/nm2m,x2/nm2m,x3/nm2m,x4/nm2m,U0/ev,U1/ev,E/ev);
+  res = abs(res ./ denom_res).^-2;
   A5 = res;
 end
